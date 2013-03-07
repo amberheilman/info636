@@ -47,7 +47,7 @@ def display():
         #prompt user for mode
         mode = raw_input("What would you like to do? Type (A)Accept (R) Replace (I) Insert (D) Delete (S) Save (W) Write new File: ")
 
-	if mode == "R":
+        if mode == "R":
             replace(index)
 
         if mode == "I":
@@ -57,18 +57,18 @@ def display():
             delete(index)
 
         if mode == "A":
-	    pass
+            pass
 
         if mode == "S":
             destroy(file)
-	    break
+            break
 
         if mode == "W":
             write()
-	    break
+            break
 
         elif mode not in ["A", "R", "I", "D", "S", "W"]:
-	    index = index-1
+            index = index-1
             error()
         index = index + 1
 
@@ -78,7 +78,7 @@ def replace(index):
     if check_data(new_num):
         temp_file[index] = new_num + "\n"
     else:
-	pass
+        pass
 
 def insert():
     #inserts to temp array
@@ -89,7 +89,7 @@ def insert():
         except:
             temp_file.append(new_num + "\n")
     else:
-	pass
+        pass
 
 def delete(index):
     #delete removes from global temp array
@@ -107,7 +107,7 @@ def check_data(num):
     try:
         num = int(num)
     except:
-	error()
+        error()
 
 def destroy(file_name):
     file = open(filename, "w")
