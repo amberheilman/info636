@@ -22,43 +22,43 @@ def prompt():
     filename = raw_input("What is the file name (ie /home/filename.txt) ? ")
 
     #open file for read or write
-    file = open(filename, "r+") #above is old
+    file = open(filename, "r+")
 
     #save an array to keep track of changes
     temp_file = file.readlines()
     file.close()
 
     for index, num in enumerate(temp_file):
-   	#print the number
+    #print the number
         print "Here is your number  %s" % (num.strip())
 
-	#ask user to (A)Accept (R) Replace (I) Insert (D) Delete (S) Save (W) Write new File
-	mode = raw_input("What would you like to do? Type (A)Accept (R) Replace (I) Insert (D) Delete (S) Save (W) Write new File: ") #mod
+        #ask user to (A)Accept (R) Replace (I) Insert (D) Delete (S) Save (W) Write new File
+        mode = raw_input("What would you like to do? Type (A)Accept (R) Replace (I) Insert (D) Delete (S) Save (W) Write new File: ") #mod
 
-	#replaces in temp array
-	if mode == "R":
-	    new_num = raw_input("What is the new number? ")
-	    temp_file[index] = new_num + "\n"
+        #replaces in temp array
+        if mode == "R":
+            new_num = raw_input("What is the new number? ")
+            temp_file[index] = new_num + "\n"
 
-	#inserts to temp array
-	if mode == "I":
-	    new_num = raw_input("What is the new number? ")
+        #inserts to temp array
+        if mode == "I":
+            new_num = raw_input("What is the new number? ")
             try:
-	        temp_file[index+1] = new_num + "\n"
-	    except:
-		temp_file.append(new_num + "\n")
+                temp_file[index+1] = new_num + "\n"
+            except:
+                temp_file.append(new_num + "\n")
 
-	#delete removes from temp array
-	if mode == "D":
-	    del temp_file[index]
-	    pass
+        #delete removes from temp array
+        if mode == "D":
+            del temp_file[index]
+            pass
 
-	#if mode is (A) Accept, then pass
-	if mode == "A":
-	    pass
+        #if mode is (A) Accept, then pass
+        if mode == "A":
+            pass
 
-	if index == len(temp_file):
-	    mode = raw_input("Reached the end of file (S) Save or (W) Write new File: ")
+        if index == len(temp_file):
+            mode = raw_input("Reached the end of file (S) Save or (W) Write new File: ")
 
         #if mode is (S) Save, then save and quit
         if mode == "S":
@@ -70,13 +70,13 @@ def prompt():
             filename = new_filename
             new_file = open(new_filename, "w")
             break
-	    
+        
     file = open(filename, "w+") 
     for num in temp_file:
-	file.write(num)
-    #close file #old
-    file.close() #old 
+        file.write(num)
+    #close file
+    file.close() 
 
-#run the program #old
-prompt() #old
+
+prompt()
 
